@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>dotnet-ahpeSynPagPro-04bcc84d-49a5-4b06-9d03-f3daa3bf8dad</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Azure.Identity" Version="1.12.0" />
+    <PackageReference Include="Azure.Storage.Blobs" Version="12.20.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Core" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Hosting.WindowsServices" Version="7.0.1" />
+    <PackageReference Include="Microsoft.Graph" Version="5.56.0" />
+    <PackageReference Include="Microsoft.Identity.Client" Version="4.61.3" />
+    <PackageReference Include="Microsoft.SharePointOnline.CSOM" Version="16.1.24908.12000" />
+	<PackageReference Include="Microsoft.Azure.Services.AppAuthentication" Version="1.6.2" />
+	<PackageReference Include="NLog" Version="5.3.2" />
+	<PackageReference Include="NLog.Web.AspNetCore" Version="5.3.11" />
+	<PackageReference Include="System.IO.FileSystem.AccessControl" Version="5.0.0" />
+
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ahpeSynPagPro.Application.Interfaces\ahpeSynPagPro.Application.Interfaces.csproj" />
+    <ProjectReference Include="..\ahpeSynPagPro.Application.Main\ahpeSynPagPro.Application.Main.csproj" />
+    <ProjectReference Include="..\ahpeSynPagPro.Infraestructure.ExternalService\ahpeSynPagPro.Infraestructure.ExternalService.Azure.Main.csproj" />
+    <ProjectReference Include="..\ahpeSynPagPro.Transversal.Common\ahpeSynPagPro.Transversal.Common.csproj" />
+  </ItemGroup>
+</Project>
