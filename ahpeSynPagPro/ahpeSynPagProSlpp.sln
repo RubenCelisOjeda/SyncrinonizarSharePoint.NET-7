@@ -35,11 +35,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ahpeSynPagPro.Transversal.C
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02.ExternalService", "02.ExternalService", "{A4DA3626-487D-4E70-B745-38FAA63BDEA4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ahpeSynPagPro.Infraestructure.ExternalService.Azure.Main", "ahpeSynPagPro.Infraestructure.ExternalService\ahpeSynPagPro.Infraestructure.ExternalService.Azure.Main.csproj", "{2BAD9C14-A753-40F1-92CE-3328B3671E79}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ahpeSynPagPro.Infraestructure.ExternalService.Azure.Main", "ahpeSynPagPro.Infraestructure.ExternalService\ahpeSynPagPro.Infraestructure.ExternalService.Azure.Main.csproj", "{2BAD9C14-A753-40F1-92CE-3328B3671E79}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01.Azure", "01.Azure", "{AEB8C1ED-B537-490F-A8EA-5D7CB70FFF40}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ahpeSynPagPro.Infraestructure.ExternalService.Azure.Interfaces", "ahpeSynPagPro.Infraestructure.ExternalService.Azure.Interfaces\ahpeSynPagPro.Infraestructure.ExternalService.Azure.Interfaces.csproj", "{5B704DFE-AF29-4DCE-876D-3E85C365BE08}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ahpeSynPagPro.Infraestructure.ExternalService.Azure.Interfaces", "ahpeSynPagPro.Infraestructure.ExternalService.Azure.Interfaces\ahpeSynPagPro.Infraestructure.ExternalService.Azure.Interfaces.csproj", "{5B704DFE-AF29-4DCE-876D-3E85C365BE08}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

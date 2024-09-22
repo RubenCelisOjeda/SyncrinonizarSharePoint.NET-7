@@ -12,7 +12,8 @@ namespace ahpeSynPagPro.Infraestructure.ExternalService.Azure.Main.PagoProveedor
         private readonly string? _blobServiceEndpoint;
         private readonly string? _storageAccountName;
         private readonly string? _storageAccountKey;
-        private readonly string? _containerName;
+        private readonly string? _containerNameDev;
+        private readonly string? _containerNameHistorialDev;
         #endregion
 
         #region [Constructor]
@@ -21,7 +22,8 @@ namespace ahpeSynPagPro.Infraestructure.ExternalService.Azure.Main.PagoProveedor
             _blobServiceEndpoint = $"https://{AppSettings.StorageAccountName}.blob.core.windows.net";
             _storageAccountName = AppSettings.StorageAccountName;
             _storageAccountKey = AppSettings.StorageAccountKey;
-            _containerName = AppSettings.ContainerName;
+            _containerNameDev = AppSettings.ContainerNameDev;
+            _containerNameHistorialDev = AppSettings.ContainerNameHistorialDev;
         }
         #endregion
 
@@ -38,8 +40,37 @@ namespace ahpeSynPagPro.Infraestructure.ExternalService.Azure.Main.PagoProveedor
             string newFileName = FormatFileNameAzure(fileName);
             string blobPath = $"FactCompra/{year}/{month}/{folderName}/{newFileName}";
 
+            //1.Container Dev
             BlobServiceClient blobServiceClient = new BlobServiceClient(new Uri(_blobServiceEndpoint), new StorageSharedKeyCredential(_storageAccountName, _storageAccountKey));
-            BlobContainerClient containerClient = blobServiceClient.GetBlobContainerClient(_containerName);
+            BlobContainerClient containerClient = blobServiceClient.GetBlobContainerClient(_containerNameDev);
+            BlobClient blobClient = containerClient.GetBlobClient(blobPath);
+
+            using FileStream uploadFileStream = File.OpenRead(filePath);
+            await blobClient.UploadAsync(uploadFileStream, true);
+            uploadFileStream.Close();
+
+            response = true;
+
+            await AddFileAzureBlobStorageHistorialDev(filePath,folderName,fileName);
+
+            return response;
+        }
+
+        public async Task<bool> AddFileAzureBlobStorageHistorialDev(string filePath, string folderName, string fileName)
+        {
+            bool response = false;
+
+            // Obtén el año y el mes actuales
+            string year = DateTime.Now.Year.ToString();
+            string month = DateTime.Now.ToString("MM_MMMM", System.Globalization.CultureInfo.InvariantCulture);
+
+            // Construye la ruta del blob
+            string newFileName = FormatFileNameAzure(fileName);
+            string blobPath = $"FactCompra/{year}/{month}/{folderName}/{newFileName}";
+
+            //1.Container Dev
+            BlobServiceClient blobServiceClient = new BlobServiceClient(new Uri(_blobServiceEndpoint), new StorageSharedKeyCredential(_storageAccountName, _storageAccountKey));
+            BlobContainerClient containerClient = blobServiceClient.GetBlobContainerClient(_containerNameHistorialDev);
             BlobClient blobClient = containerClient.GetBlobClient(blobPath);
 
             using FileStream uploadFileStream = File.OpenRead(filePath);

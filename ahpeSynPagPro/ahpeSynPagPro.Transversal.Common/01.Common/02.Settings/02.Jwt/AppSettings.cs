@@ -9,7 +9,8 @@ namespace ahpeSynPagPro.Transversal.Common._01.Common._02.Settings._02.Jwt
         public static IConfiguration? _configuration;
         public static string? StorageAccountName { get; set; }
         public static string? StorageAccountKey { get; set; }
-        public static string? ContainerName { get; set; }
+        public static string? ContainerNameDev { get; set; }
+        public static string? ContainerNameHistorialDev { get; set; }
         #endregion
 
         #region [Constructor]
@@ -25,7 +26,8 @@ namespace ahpeSynPagPro.Transversal.Common._01.Common._02.Settings._02.Jwt
         {
             StorageAccountName = _configuration?["AzureBlobStorage:StorageAccountName"];
             StorageAccountKey = _configuration?["AzureBlobStorage:StorageAccountKey"];
-            ContainerName = _configuration?["AzureBlobStorage:ContainerName"];
+            ContainerNameDev = _configuration?["AzureBlobStorage:ContainerNameDev"];
+            ContainerNameHistorialDev = _configuration?["AzureBlobStorage:ContainerNameHistorialDev"];
         }
         #endregion
     }

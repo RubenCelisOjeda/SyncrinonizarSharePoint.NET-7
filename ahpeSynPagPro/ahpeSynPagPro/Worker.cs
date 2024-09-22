@@ -17,9 +17,10 @@ namespace ahpeSynPagPro
             _logger = logger;
             _configuration = configuration;
             _pagoProveedorApplication = pagoProveedorApplication;
-        } 
+        }
         #endregion
 
+        #region[Main]
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
             int delayTime = 0;
@@ -41,7 +42,8 @@ namespace ahpeSynPagPro
 
                 await Task.Delay(delayTime, stoppingToken); // Esperar 1 minuto antes de volver a verificar
             }
-        }
+        } 
+        #endregion
 
         #region [Functions]
         /// <summary>
